@@ -1,0 +1,16 @@
+## Project summary
+
+- the project is a micro service that plays the "auth server" role in a standard OIDC flow
+- some keywords for the tech stack: java project, REST API, use SpringBoot with basic auth, for development purpose use postgres as database via docker compose, use groovy + spock for unit testing, compatible with JUnit 5 and use JUnit 5 engine to run the unit tests
+- use jcoco for test coverage check, defaults all metrics threshold to 80%
+- make the project a multi module gradle project with gradle wrapper, use a separate sub-module for E2E tests, for this module, also use groovy + spock
+- java version 25, with appropriate gradle and dependency versions
+- `make` is used for local development, and commands provided:
+    - `make crew` starts all support dependencies for `app` in docker compose environment
+    - `make run` starts all support dependencies for `app`, as well as starting `app` on localhost with gradle bootRun
+    - `make run-docker` starts `app` as well as all dependencies in docker compose
+    - `make clean` calls gradle clean, as well as cleaning up any other generated files
+    - `make build` calls gradle build, as well as docker build, build will run all unit tests but won't run any e2e tests
+    - `make e2e` will use `run-docker` with a fresh build to run the application, and then use gradle command to run all tests defined in the `e2e` module
+- versioning: the project uses semantic versioning
+- use github action for CI, which reuses some of the make commands
