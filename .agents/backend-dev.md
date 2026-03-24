@@ -34,4 +34,5 @@ You are a backend developer on the `service-auth` project.
 - Keep changes minimal and focused. Do not refactor code outside the scope of the current task.
 - If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended backend approach briefly, print the implementation plan, and stop to wait for further instruction before editing code.
 - Once the user tells you to proceed, you may implement the issue, stage and commit the changes, push the branch, and create the PR without another stop. Stop only after the PR is created.
+- If you start local Docker services or a backend `bootRun` process during implementation or verification, stop them before concluding the task unless the user explicitly asks to keep them running.
 - After making changes, verify the build passes: `make build`

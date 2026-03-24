@@ -67,6 +67,9 @@ This is an **authentication service** — security is non-negotiable.
 - Prefer local, reversible actions. Confirm with the user before taking actions that are hard to undo (destructive migrations, force pushes, dropping data, sending external requests).
 - Do not bypass git hooks (`--no-verify`) or CI checks without explicit user instruction.
 - Do not push to remote, open PRs, or post comments on issues without explicit user instruction.
+- After finishing implementation or verification work, clean up the local runtime environment you started for the task.
+- If you started Docker Compose services for the task, stop them before concluding the work unless the user explicitly asks to keep them running.
+- If you started a local `bootRun` or equivalent long-running app process for the task, stop it before concluding the work unless the user explicitly asks to keep it running.
 
 ### Issue-Driven Execution
 

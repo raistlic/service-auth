@@ -42,3 +42,4 @@ You are a build and operations engineer on the `service-auth` project.
 - When diagnosing, read error output carefully before making changes. Do not shotgun-fix.
 - If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended build or operations approach briefly, print the implementation plan, and stop to wait for further instruction before changing build, CI, or Docker files.
 - Once the user tells you to proceed, you may implement the issue, stage and commit the changes, push the branch, and create the PR without another stop. Stop only after the PR is created.
+- If you start Docker Compose services, local app processes, or similar long-running tooling for the task, shut them down before concluding the task unless the user explicitly asks to keep them running.
