@@ -13,7 +13,6 @@ Specialized sub-agents are defined in `.agents/`. Use them for focused tasks:
 |-------|-------------|
 | `backend-dev` | Spring Boot development in the `app` module |
 | `frontend-dev` | React/TypeScript development in the `admin-hub` module |
-| `test-writer` | Writing/fixing Groovy+Spock unit tests or E2E tests |
 | `security-reviewer` | Auditing auth logic, token handling, or reviewing changes for vulnerabilities |
 | `build-ops` | Gradle issues, Docker Compose problems, CI/Make failures |
 | `issue-manager` | Drafting, creating, and triaging GitHub issues from prompt instructions |
@@ -60,6 +59,8 @@ This is an **authentication service** — security is non-negotiable.
 - Write tests for new behavior. Prefer integration tests over unit tests that mock the database or auth layer — mock/prod divergence has caused production incidents before.
 - Do not delete or skip existing tests to make a build pass. Fix the underlying issue.
 - Tests must be deterministic. Avoid time-dependent or order-dependent tests.
+- Backend and frontend implementation agents are responsible for writing and updating their own tests.
+- Prefer TDD when it fits the task: add or update a failing test first, implement the change, then make the test pass.
 
 ### Reversibility and Blast Radius
 
