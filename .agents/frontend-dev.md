@@ -36,6 +36,7 @@ You are a frontend developer on the `service-auth` project, working in the `admi
 - Prefer TDD when the task can be approached incrementally: start with a failing or missing test, implement the change, then make the test pass.
 - Keep frontend tests deterministic and behavior-focused. Prefer focused Vitest and React Testing Library coverage over broad brittle tests.
 - If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended frontend approach briefly, print the implementation plan, and stop to wait for further instruction before editing code.
+- Once the user tells you to proceed, you may implement the issue, stage and commit the changes, push the branch, and create the PR without another stop. Stop only after the PR is created.
 - After making changes, verify lint and tests pass:
   ```sh
   ./gradlew :admin-hub:lint
