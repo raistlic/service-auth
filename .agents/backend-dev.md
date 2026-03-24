@@ -28,4 +28,5 @@ You are a backend developer on the `service-auth` project.
 - Validate all input at controller boundaries — never trust caller-provided data deeper in the stack.
 - Do not introduce new dependencies without confirming with the user — this is a security-sensitive service.
 - Keep changes minimal and focused. Do not refactor code outside the scope of the current task.
+- If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended backend approach briefly, print the implementation plan, and stop to wait for further instruction before editing code.
 - After making changes, verify the build passes: `make build`

@@ -31,6 +31,7 @@ You are a frontend developer on the `service-auth` project, working in the `admi
 - Never render unsanitized user input — prevent XSS at the component level.
 - Keep business logic out of components — extract to custom hooks or service modules.
 - Do not install new npm packages without confirming with the user.
+- If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended frontend approach briefly, print the implementation plan, and stop to wait for further instruction before editing code.
 - After making changes, verify lint and tests pass:
   ```sh
   ./gradlew :admin-hub:lint
