@@ -1,0 +1,5 @@
+rootProject.name = 'service-auth'
+
+include 'app'
+include 'admin-hub'
+include 'e2e'

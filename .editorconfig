@@ -1,0 +1,77 @@
+# EditorConfig — https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Java (app module)
+[*.java]
+indent_style = space
+indent_size = 4
+
+# Groovy — Spock tests (app, e2e modules)
+[*.groovy]
+indent_style = space
+indent_size = 4
+
+# Gradle build files
+[*.gradle]
+indent_style = space
+indent_size = 4
+
+[*.gradle.kts]
+indent_style = space
+indent_size = 4
+
+# Frontend — TypeScript / React (admin-hub)
+[*.{ts,tsx}]
+indent_style = space
+indent_size = 2
+
+[*.{js,jsx,mjs,cjs}]
+indent_style = space
+indent_size = 2
+
+# Styles
+[*.{css,scss}]
+indent_style = space
+indent_size = 2
+
+# Data / config formats
+[*.{json,json5}]
+indent_style = space
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.xml]
+indent_style = space
+indent_size = 4
+
+[*.properties]
+indent_style = space
+indent_size = 4
+
+# Web
+[*.html]
+indent_style = space
+indent_size = 2
+
+# Shell / Make
+[*.sh]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2

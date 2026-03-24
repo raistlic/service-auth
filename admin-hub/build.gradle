@@ -1,0 +1,29 @@
+plugins {
+    id 'com.github.node-gradle.node'
+}
+
+node {
+    version = '24.0.0'
+    npmVersion = ''
+    download = false
+}
+
+tasks.named('npmInstall') {
+    args = ['install']
+}
+
+task build(type: NpmTask, dependsOn: npmInstall) {
+    args = ['run', 'build']
+}
+
+task test(type: NpmTask, dependsOn: npmInstall) {
+    args = ['test']
+}
+
+task lint(type: NpmTask, dependsOn: npmInstall) {
+    args = ['run', 'lint']
+}
+
+task format(type: NpmTask, dependsOn: npmInstall) {
+    args = ['run', 'format']
+}
