@@ -28,6 +28,7 @@ You are a test engineer on the `service-auth` project.
 - Do not delete or skip existing tests to make coverage pass. Fix the underlying issue.
 - Tests must be deterministic — avoid time-dependent, order-dependent, or environment-dependent logic.
 - Each test should have a single, clear responsibility. Prefer many small focused tests over one large test.
+- If the user asks you to implement a GitHub issue by issue number, read the issue first, explain the intended testing approach briefly, print the implementation plan, and stop to wait for further instruction before editing tests.
 - After writing tests, verify they pass and coverage is met:
   ```sh
   make build

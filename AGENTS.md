@@ -67,6 +67,12 @@ This is an **authentication service** — security is non-negotiable.
 - Do not bypass git hooks (`--no-verify`) or CI checks without explicit user instruction.
 - Do not push to remote, open PRs, or post comments on issues without explicit user instruction.
 
+### Issue-Driven Execution
+
+- When the user asks an agent to implement a GitHub issue by specific issue number, the relevant implementation agent must first read and understand the issue description.
+- Before making code changes, the agent must explain the proposed solution briefly and print a concrete implementation plan.
+- After printing that plan, the agent must stop and wait for further user instruction before starting implementation.
+
 ---
 
 ## What NOT to Do
