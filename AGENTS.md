@@ -7,7 +7,7 @@ This file provides guidance to AI agents working in this repository.
 
 ## Specialized Agents
 
-Specialized sub-agents are defined in `.claude/agents/`. Use them for focused tasks:
+Specialized sub-agents are defined in `.agents/`. Use them for focused tasks:
 
 | Agent | When to use |
 |-------|-------------|
