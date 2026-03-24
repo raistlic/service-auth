@@ -88,16 +88,17 @@ class HelloWorldMessageServiceTest {
     @Test
     void deleteRemovesEntity() {
         String id = UUID.randomUUID().toString();
-        when(repository.existsById(id)).thenReturn(true);
+        HelloWorldMessage existing = new HelloWorldMessage(id, "hello");
+        when(repository.findById(id)).thenReturn(Optional.of(existing));
 
         service.delete(id);
 
-        verify(repository).deleteById(id);
+        verify(repository).delete(existing);
     }
 
     @Test
     void deleteThrowsWhenNotFound() {
-        when(repository.existsById("missing")).thenReturn(false);
+        when(repository.findById("missing")).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> service.delete("missing"))
             .isInstanceOf(NoSuchElementException.class);

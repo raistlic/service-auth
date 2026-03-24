@@ -49,9 +49,8 @@ public class HelloWorldMessageService {
 
     @Transactional
     public void delete(String id) {
-        if (!repository.existsById(id)) {
-            throw new NoSuchElementException("HelloWorldMessage not found: " + id);
-        }
-        repository.deleteById(id);
+        HelloWorldMessage entity = repository.findById(id)
+            .orElseThrow(() -> new NoSuchElementException("HelloWorldMessage not found: " + id));
+        repository.delete(entity);
     }
 }
