@@ -54,7 +54,7 @@ class HelloWorldMessageController {
     }
 
     @ExceptionHandler(NoSuchElementException.class)
-    ResponseEntity<Void> handleNotFound() {
+    ResponseEntity<Void> handleNotFound(NoSuchElementException ex) {
         return ResponseEntity.notFound().build();
     }
 }

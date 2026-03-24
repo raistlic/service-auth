@@ -5,6 +5,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
@@ -43,6 +44,7 @@ class HelloWorldMessageControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(new HelloWorldMessageRequest("hello"))))
             .andExpect(status().isCreated())
+            .andExpect(header().string("Location", "/api/hello-world-messages/" + id))
             .andExpect(jsonPath("$.id").value(id))
             .andExpect(jsonPath("$.message").value("hello"));
     }
