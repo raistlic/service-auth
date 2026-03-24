@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-serviceauth}
+      POSTGRES_USER: ${DB_USER:-serviceauth}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-serviceauth}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-serviceauth} -d ${DB_NAME:-serviceauth}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  app:
+    build:
+      context: ./app
+    image: service-auth-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-serviceauth}
+      DB_USER: ${DB_USER:-serviceauth}
+      DB_PASSWORD: ${DB_PASSWORD:-serviceauth}
+    ports:
+      - "8080:8080"
+
+  admin-hub:
+    build:
+      context: ./admin-hub
+    image: service-auth-admin-hub
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:

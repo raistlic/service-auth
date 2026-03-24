@@ -23,11 +23,12 @@ This is a multi-module Gradle project:
 
 ## Prerequisites
 
-- Java 25
-- Node.js (LTS) — required to build the `admin-hub` frontend module
+- [mise](https://mise.jdx.dev/) — manages Java and Node.js versions for this project
 - Docker and Docker Compose
 - `make`
 - Gradle wrapper is included — no separate Gradle installation needed
+
+Java 25 and Node.js 24 (LTS) are pinned in `.mise.toml`. Run `mise install` once after cloning to install the correct versions automatically.
 
 ## Local Setup
 

@@ -1,0 +1,29 @@
+.PHONY: crew run run-docker clean build e2e
+
+crew:
+	docker compose up -d postgres
+
+run: crew
+	./gradlew :app:bootRun
+
+run-docker:
+	docker compose up -d
+
+clean:
+	./gradlew clean
+	docker compose down --volumes --remove-orphans
+
+build:
+	./gradlew build
+	docker build -t service-auth-app ./app
+	docker build -t service-auth-admin-hub ./admin-hub
+
+e2e:
+	$(MAKE) build
+	docker compose up -d
+	@echo "Waiting for app to become healthy..."
+	@until docker compose exec app wget -qO- http://localhost:8080/actuator/health 2>/dev/null | grep -q '"status":"UP"'; do \
+		sleep 2; \
+	done
+	./gradlew :e2e:test
+	docker compose down
