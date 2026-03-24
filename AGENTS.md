@@ -16,6 +16,7 @@ Specialized sub-agents are defined in `.agents/`. Use them for focused tasks:
 | `test-writer` | Writing/fixing Groovy+Spock unit tests or E2E tests |
 | `security-reviewer` | Auditing auth logic, token handling, or reviewing changes for vulnerabilities |
 | `build-ops` | Gradle issues, Docker Compose problems, CI/Make failures |
+| `issue-manager` | Drafting, creating, and triaging GitHub issues from prompt instructions |
 
 ## Core Principles
 
