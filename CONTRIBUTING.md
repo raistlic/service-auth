@@ -93,7 +93,27 @@ Tests use the JUnit 5 engine. Spock specs are written in Groovy and run via JUni
 
 ## Database Migrations
 
-> TODO: Document the migration tool in use (e.g., Flyway, Liquibase) and how to create/run migrations.
+This project uses Flyway for database migrations in the backend application.
+
+- Default migration path: `app/src/main/resources/db/migration`
+- Migration filename format: `V<YYYYMMDDHHMMSS>__<description>.sql`
+- Use a pure numeric datetime prefix with no separators
+- Use String UUID values for primary keys in application tables unless the user explicitly directs otherwise
+
+Example:
+
+```sh
+V20260324153000__create_hello_world_table.sql
+```
+
+Flyway runs automatically on backend startup before Hibernate validates the schema.
+
+When adding a new migration:
+
+1. Create a new SQL file in `app/src/main/resources/db/migration`
+2. Use the next numeric datetime prefix
+3. Keep the description short and snake_case
+4. Run the backend locally to confirm the migration applies cleanly
 
 ## Branching and PR Workflow
 
