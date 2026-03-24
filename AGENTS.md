@@ -73,6 +73,8 @@ This is an **authentication service** — security is non-negotiable.
 - When the user asks an agent to implement a GitHub issue by specific issue number, the relevant implementation agent must first read and understand the issue description.
 - Before making code changes, the agent must explain the proposed solution briefly and print a concrete implementation plan.
 - After printing that plan, the agent must stop and wait for further user instruction before starting implementation.
+- Once the user confirms implementation should proceed, the agent does not need to stop again for staging changes, committing local changes, pushing the branch, or creating the PR.
+- After the PR is created, the agent must stop and wait for further user instruction before taking additional actions such as merging, editing the PR, or switching branches.
 
 ---
 
