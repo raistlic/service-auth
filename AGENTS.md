@@ -1,8 +1,9 @@
-# CLAUDE.md
+This file provides guidance to AI agents working in this repository.
 
-This file provides guidance to AI agents (Claude Code and others) working in this repository.
-
-For project setup, tech stack, and contribution workflows, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+## Project Context
+- **Structure**: agent rules in `.agents/`.
+- **Skills**: store repository-local Codex skill files under `.agents/skills/`.
+- **More Details**: refer to CONTRIBUTING.md for more project context information which is shared by AI agents and human users.
 
 ## Specialized Agents
 
@@ -16,9 +17,17 @@ Specialized sub-agents are defined in `.claude/agents/`. Use them for focused ta
 | `security-reviewer` | Auditing auth logic, token handling, or reviewing changes for vulnerabilities |
 | `build-ops` | Gradle issues, Docker Compose problems, CI/Make failures |
 
----
-
 ## Core Principles
+
+### Branching Model
+
+Always work on a feature branch, never make changes on main branch directly.
+
+- Feature branch name format is `feature/<task summary>`.
+- Task summary is the summary of what the task is trying to achieve in 2~3 words in snake case.
+- Ask to create a feature branch if the current branch is `main`, always, as the first thing when starting to execute a task.
+- After the task is done, stage all changes, commit with appropriate message.
+- When instructed, push local changes to remote with the same feature branch name, create a PR with appropriate title & description, and provide a link in the console output for user to review. Do this step only when instructed.
 
 ### Security First
 
