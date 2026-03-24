@@ -2,30 +2,30 @@ package com.example.serviceauth.helloworld;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "hello_world_message")
 public class HelloWorldMessage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, updatable = false, length = 36)
+    private String id;
 
     @Column(nullable = false)
     private String message;
 
-    public HelloWorldMessage() {
+    protected HelloWorldMessage() {
     }
 
-    public HelloWorldMessage(String message) {
-        this.message = message;
+    public HelloWorldMessage(String id, String message) {
+        this.id = Objects.requireNonNull(id, "id must not be null");
+        this.message = Objects.requireNonNull(message, "message must not be null");
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

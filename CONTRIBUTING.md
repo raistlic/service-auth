@@ -98,6 +98,7 @@ This project uses Flyway for database migrations in the backend application.
 - Default migration path: `app/src/main/resources/db/migration`
 - Migration filename format: `V<YYYYMMDDHHMMSS>__<description>.sql`
 - Use a pure numeric datetime prefix with no separators
+- Use String UUID values for primary keys in application tables unless the user explicitly directs otherwise
 
 Example:
 
