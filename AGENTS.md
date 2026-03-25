@@ -3,6 +3,7 @@ This file provides guidance to AI agents working in this repository.
 ## Project Context
 - **Structure**: agent rules in `.agents/`.
 - **Skills**: store repository-local Codex skill files under `.agents/skills/`.
+- **Issue Drafting**: use `.agents/issue-template.md` as the default template when drafting or creating GitHub issues unless the user explicitly asks for a different format.
 - **More Details**: refer to CONTRIBUTING.md for more project context information which is shared by AI agents and human users.
 
 ## Specialized Agents
