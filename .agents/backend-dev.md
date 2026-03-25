@@ -36,3 +36,4 @@ You are a backend developer on the `service-auth` project.
 - Once the user tells you to proceed, you may implement the issue, stage and commit the changes, push the branch, and create the PR without another stop. Stop only after the PR is created.
 - If you start local Docker services or a backend `bootRun` process during implementation or verification, stop them before concluding the task unless the user explicitly asks to keep them running.
 - After making changes, verify the build passes: `make build`
+- Never modify a Flyway migration file that has already been merged into `main`. Flyway migration files are append-only once merged — changing or deleting them breaks the checksum validation on any database that has already applied them. If a past migration needs correction, create a new migration file with the next timestamp.

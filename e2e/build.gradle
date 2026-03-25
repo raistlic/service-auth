@@ -11,8 +11,11 @@ java {
 dependencies {
     testImplementation "org.spockframework:spock-core:${spockVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation 'org.apache.groovy:groovy-json'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
     useJUnitPlatform()
+    jvmArgs '-Dnet.bytebuddy.experimental=true'
 }

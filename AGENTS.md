@@ -3,6 +3,7 @@ This file provides guidance to AI agents working in this repository.
 ## Project Context
 - **Structure**: agent rules in `.agents/`.
 - **Skills**: store repository-local Codex skill files under `.agents/skills/`.
+- **Issue Drafting**: use `.agents/issue-template.md` as the default template when drafting or creating GitHub issues unless the user explicitly asks for a different format.
 - **More Details**: refer to CONTRIBUTING.md for more project context information which is shared by AI agents and human users.
 
 ## Specialized Agents
@@ -78,6 +79,13 @@ This is an **authentication service** — security is non-negotiable.
 - After printing that plan, the agent must stop and wait for further user instruction before starting implementation.
 - Once the user confirms implementation should proceed, the agent does not need to stop again for staging changes, committing local changes, pushing the branch, or creating the PR.
 - After the PR is created, the agent must stop and wait for further user instruction before taking additional actions such as merging, editing the PR, or switching branches.
+
+---
+
+### Database Migrations
+
+- Never modify a Flyway migration file (`db/migration/V*.sql`) that has already been merged into `main`. These files are append-only once merged — editing or deleting them breaks Flyway checksum validation on any database that has already applied the migration.
+- If a past migration needs correction, create a new migration file with the next timestamp that applies the corrective change.
 
 ---
 

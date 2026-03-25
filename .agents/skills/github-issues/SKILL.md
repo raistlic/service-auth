@@ -7,6 +7,8 @@ description: Manage GitHub issues with the gh command line tool. Use when Codex 
 
 Use `gh issue` for GitHub issue operations. Confirm repository and authentication state before mutating issue data.
 
+When working inside this repository, use `.agents/issue-template.md` as the default structure for drafted and created issues unless the user or repository context explicitly requires a different format.
+
 ## Quick Start
 
 1. Inspect repo and issue state first.
@@ -40,6 +42,15 @@ Prefer `gh issue status` before guessing which issue the user means.
 
 ## Create Issues
 
+Before drafting or creating an issue in this repository, read `.agents/issue-template.md` and structure the body with:
+
+- `Context`
+- `Problem`
+- `Requirements`
+- `Definition of Done`
+- `Testing Guide`
+- `Additional Notes`
+
 Create a new issue with an explicit title and body:
 
 ```bash
@@ -53,7 +64,7 @@ gh issue create --title "<title>" --body "<body>" --label "<label>"
 gh issue create --title "<title>" --body "<body>" --assignee "<user>"
 ```
 
-If the user asks for a new issue but does not supply enough detail, draft a concise title and body from the surrounding context and show the proposed wording when that context matters.
+If the user asks for a new issue but does not supply enough detail, draft a concise title and body from the surrounding context, following the repository issue template, and show the proposed wording when that context matters.
 
 ## Edit Issues
 
@@ -104,6 +115,7 @@ When multiple matches are plausible, return the shortlist with issue numbers and
 - Use `gh repo view` when the current repository target is uncertain.
 - Show issue number and URL after create or edit operations.
 - Preserve the existing issue body unless the user explicitly asks to replace it.
+- Check for a repository-local issue template before improvising issue structure.
 - If the issue description looks incomplete, propose wording instead of silently publishing weak content.
 - Avoid bulk issue edits unless the user explicitly requests them.
 
