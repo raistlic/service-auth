@@ -16,10 +16,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/actuator/health").permitAll()
                 .requestMatchers("/api/hello-world-messages/**").permitAll()
                 .anyRequest().authenticated()
             )
             .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/actuator/health")
                 .ignoringRequestMatchers("/api/hello-world-messages/**")
             )
             .httpBasic(withDefaults());
