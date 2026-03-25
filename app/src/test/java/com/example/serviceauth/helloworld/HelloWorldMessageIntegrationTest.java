@@ -1,5 +1,6 @@
 package com.example.serviceauth.helloworld;
 
+import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -46,12 +47,13 @@ class HelloWorldMessageIntegrationTest {
         // GET by id → 200
         mockMvc.perform(get("/api/hello-world-messages/" + id))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.id").value(id));
+            .andExpect(jsonPath("$.id").value(id))
+            .andExpect(jsonPath("$.message").value("hello integration"));
 
         // GET list → contains created record
         mockMvc.perform(get("/api/hello-world-messages"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].id").value(id));
+            .andExpect(jsonPath("$[*].id", hasItem(id)));
 
         // PUT → 200 with updated message
         mockMvc.perform(put("/api/hello-world-messages/" + id)
