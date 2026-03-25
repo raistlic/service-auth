@@ -145,7 +145,7 @@ class HelloWorldMessageE2ESpec extends Specification {
         then:
         deleteResponse.statusCode() == 204
 
-        and: "the resource is gone"
+        when: "the deleted resource is fetched"
         def getResponse = client.send(
             HttpRequest.newBuilder()
                 .uri(URI.create("${baseUrl}/api/hello-world-messages/${createdId}"))
@@ -153,6 +153,8 @@ class HelloWorldMessageE2ESpec extends Specification {
                 .build(),
             HttpResponse.BodyHandlers.ofString()
         )
+
+        then: "it is gone"
         getResponse.statusCode() == 404
     }
 
