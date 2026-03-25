@@ -81,6 +81,13 @@ This is an **authentication service** — security is non-negotiable.
 
 ---
 
+### Database Migrations
+
+- Never modify a Flyway migration file (`db/migration/V*.sql`) that has already been merged into `main`. These files are append-only once merged — editing or deleting them breaks Flyway checksum validation on any database that has already applied the migration.
+- If a past migration needs correction, create a new migration file with the next timestamp that applies the corrective change.
+
+---
+
 ## What NOT to Do
 
 - Do not introduce new dependencies without discussion — this is a security-sensitive service and the dependency surface matters.
