@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 @EnableJpaRepositories(basePackages = {
     "com.example.serviceauth",
-    "org.raistlic.serviceauth.oauth2"
+    "org.raistlic.serviceauth.repository"
 })
 public class OAuth2PersistenceConfig {
 }

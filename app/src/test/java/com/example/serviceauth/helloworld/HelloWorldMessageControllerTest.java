@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
-import com.example.serviceauth.oauth2.OAuth2PersistenceConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -22,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import com.example.serviceauth.oauth2.OAuth2PersistenceConfig;
 
 @WebMvcTest(
     controllers = HelloWorldMessageController.class,
