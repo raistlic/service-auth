@@ -27,7 +27,7 @@ class OAuth2ClientApplicationRegistrationController {
     ) {
         OAuth2ClientApplicationRegistrationResponse created = service.register(request);
         return ResponseEntity
-            .created(URI.create("/api/oauth2/client-applications/" + created.id()))
+            .created(URI.create("/api/oauth2/client-applications/" + created.clientId()))
             .body(created);
     }
 

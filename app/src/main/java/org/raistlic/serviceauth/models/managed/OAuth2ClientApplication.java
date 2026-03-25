@@ -17,9 +17,6 @@ public class OAuth2ClientApplication {
 
     @Id
     @Column(nullable = false, updatable = false, length = 36)
-    private String id;
-
-    @Column(name = "client_id", nullable = false, unique = true, length = 100)
     private String clientId;
 
     @Column(name = "client_secret_hash", nullable = false)
@@ -40,8 +37,7 @@ public class OAuth2ClientApplication {
     protected OAuth2ClientApplication() {
     }
 
-    public OAuth2ClientApplication(String id, String clientId, String clientSecretHash, String clientName) {
-        this.id = Objects.requireNonNull(id, "id must not be null");
+    public OAuth2ClientApplication(String clientId, String clientSecretHash, String clientName) {
         this.clientId = Objects.requireNonNull(clientId, "clientId must not be null");
         this.clientSecretHash = Objects.requireNonNull(clientSecretHash, "clientSecretHash must not be null");
         this.clientName = Objects.requireNonNull(clientName, "clientName must not be null");
@@ -63,10 +59,6 @@ public class OAuth2ClientApplication {
         Objects.requireNonNull(scope, "scope must not be null");
         scope.attachTo(this);
         scopes.add(scope);
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getClientId() {

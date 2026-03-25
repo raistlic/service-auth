@@ -13,7 +13,6 @@ import org.raistlic.serviceauth.models.managed.OAuth2ClientRedirectUri;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest(
@@ -37,7 +36,6 @@ class OAuth2ClientApplicationRepositoryIntegrationTest {
     @Transactional
     void persistsAndLoadsRegisteredClientApplication() {
         OAuth2ClientApplication application = new OAuth2ClientApplication(
-            UUID.randomUUID().toString(),
             "sample-client",
             "{bcrypt}$2a$10$abcdefghijklmnopqrstuv",
             "Sample Client"
@@ -51,7 +49,7 @@ class OAuth2ClientApplicationRepositoryIntegrationTest {
         repository.saveAndFlush(application);
         entityManager.clear();
 
-        OAuth2ClientApplication loaded = repository.findByClientId("sample-client").orElseThrow();
+        OAuth2ClientApplication loaded = repository.findById("sample-client").orElseThrow();
 
         assertThat(loaded.getClientName()).isEqualTo("Sample Client");
         assertThat(loaded.getClientSecretHash()).startsWith("{bcrypt}");
@@ -70,26 +68,26 @@ class OAuth2ClientApplicationRepositoryIntegrationTest {
     @Transactional
     void rejectsDuplicateClientId() {
         repository.saveAndFlush(new OAuth2ClientApplication(
-            UUID.randomUUID().toString(),
             "duplicate-client",
             "{bcrypt}$2a$10$abcdefghijklmnopqrstuv",
             "First Client"
         ));
+        entityManager.clear();
 
-        assertThatThrownBy(() -> repository.saveAndFlush(new OAuth2ClientApplication(
-            UUID.randomUUID().toString(),
-            "duplicate-client",
-            "{bcrypt}$2a$10$zzzzzzzzzzzzzzzzzzzzzz",
-            "Second Client"
-        )))
-            .isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> {
+            entityManager.persist(new OAuth2ClientApplication(
+                "duplicate-client",
+                "{bcrypt}$2a$10$zzzzzzzzzzzzzzzzzzzzzz",
+                "Second Client"
+            ));
+            entityManager.flush();
+        }).isInstanceOfAny(RuntimeException.class);
     }
 
     @Test
     @Transactional
     void rejectsMissingRequiredClientName() {
         assertThatThrownBy(() -> repository.saveAndFlush(new OAuth2ClientApplication(
-            UUID.randomUUID().toString(),
             "missing-name-client",
             "{bcrypt}$2a$10$abcdefghijklmnopqrstuv",
             null

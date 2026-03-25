@@ -46,7 +46,6 @@ class OAuth2ClientApplicationRegistrationControllerTest {
     @Test
     void registerReturns201WithGeneratedCredentials() throws Exception {
         when(service.register(any())).thenReturn(new OAuth2ClientApplicationRegistrationResponse(
-            "app-1",
             "client-1",
             "secret-1",
             "Sample App",
@@ -64,8 +63,7 @@ class OAuth2ClientApplicationRegistrationControllerTest {
                     List.of("openid")
                 ))))
             .andExpect(status().isCreated())
-            .andExpect(header().string("Location", "/api/oauth2/client-applications/app-1"))
-            .andExpect(jsonPath("$.id").value("app-1"))
+            .andExpect(header().string("Location", "/api/oauth2/client-applications/client-1"))
             .andExpect(jsonPath("$.clientId").value("client-1"))
             .andExpect(jsonPath("$.clientSecret").value("secret-1"))
             .andExpect(jsonPath("$.clientName").value("Sample App"));

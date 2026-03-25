@@ -70,7 +70,7 @@ class OAuth2ClientApplicationRegistrationIntegrationTest {
         String clientId = body.get("clientId").asText();
         String clientSecret = body.get("clientSecret").asText();
 
-        OAuth2ClientApplication saved = repository.findByClientId(clientId).orElseThrow();
+        OAuth2ClientApplication saved = repository.findById(clientId).orElseThrow();
 
         assertThat(saved.getClientName()).isEqualTo("Integration App");
         assertThat(saved.getClientSecretHash()).isNotEqualTo(clientSecret);

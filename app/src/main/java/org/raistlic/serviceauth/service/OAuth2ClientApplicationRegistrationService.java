@@ -42,7 +42,6 @@ public class OAuth2ClientApplicationRegistrationService {
         String clientSecret = UUID.randomUUID().toString();
 
         OAuth2ClientApplication application = new OAuth2ClientApplication(
-            UUID.randomUUID().toString(),
             clientId,
             passwordEncoder.encode(clientSecret),
             clientName
@@ -61,7 +60,6 @@ public class OAuth2ClientApplicationRegistrationService {
         OAuth2ClientApplication saved = repository.save(application);
 
         return new OAuth2ClientApplicationRegistrationResponse(
-            saved.getId(),
             saved.getClientId(),
             clientSecret,
             saved.getClientName(),
