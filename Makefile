@@ -24,5 +24,4 @@ e2e:
 	@until docker compose exec app wget -qO- http://localhost:8080/actuator/health 2>/dev/null | grep -q '"status":"UP"'; do \
 		sleep 2; \
 	done
-	./gradlew :e2e:test
-	docker compose down
+	./gradlew :e2e:test; status=$$?; docker compose down; exit $$status
