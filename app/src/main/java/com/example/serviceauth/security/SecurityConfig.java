@@ -18,11 +18,13 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/actuator/health").permitAll()
                 .requestMatchers("/api/hello-world-messages/**").permitAll()
+                .requestMatchers("/api/oauth2/client-applications").permitAll()
                 .anyRequest().authenticated()
             )
             .csrf(csrf -> csrf
                 .ignoringRequestMatchers("/actuator/health")
                 .ignoringRequestMatchers("/api/hello-world-messages/**")
+                .ignoringRequestMatchers("/api/oauth2/client-applications")
             )
             .httpBasic(withDefaults());
         return http.build();

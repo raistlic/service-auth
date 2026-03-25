@@ -1,4 +1,4 @@
-package org.raistlic.serviceauth.oauth2;
+package org.raistlic.serviceauth.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

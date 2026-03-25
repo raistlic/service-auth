@@ -1,4 +1,4 @@
-package org.raistlic.serviceauth.oauth2;
+package org.raistlic.serviceauth.repository;
 
 import java.util.Optional;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientApplication;
