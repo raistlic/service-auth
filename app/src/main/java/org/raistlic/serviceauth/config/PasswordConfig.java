@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration(proxyBeanMethods = false)
-public class OAuth2PasswordConfig {
+public class PasswordConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
