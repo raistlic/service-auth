@@ -1,4 +1,4 @@
-package com.example.serviceauth.helloworld;
+package org.raistlic.serviceauth.helloworld;
 
 import java.util.List;
 import java.util.NoSuchElementException;

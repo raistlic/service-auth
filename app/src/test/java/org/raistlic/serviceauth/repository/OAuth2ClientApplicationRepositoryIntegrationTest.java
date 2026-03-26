@@ -3,10 +3,10 @@ package org.raistlic.serviceauth.repository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.example.serviceauth.ServiceAuthApplication;
 import jakarta.persistence.EntityManager;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
+import org.raistlic.serviceauth.ServiceAuthApplication;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientApplication;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientGrantType;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientRedirectUri;

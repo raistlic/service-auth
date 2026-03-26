@@ -1,4 +1,4 @@
-package com.example.serviceauth.security;
+package org.raistlic.serviceauth.security;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 

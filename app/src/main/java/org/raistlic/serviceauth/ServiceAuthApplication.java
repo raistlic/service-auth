@@ -1,12 +1,9 @@
-package com.example.serviceauth;
+package org.raistlic.serviceauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {
-    "com.example.serviceauth",
-    "org.raistlic.serviceauth"
-})
+@SpringBootApplication(scanBasePackages = "org.raistlic.serviceauth")
 public class ServiceAuthApplication {
 
     public static void main(String[] args) {
