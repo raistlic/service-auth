@@ -7,11 +7,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.serviceauth.ServiceAuthApplication;
-import com.example.serviceauth.oauth2.OAuth2PersistenceConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.raistlic.serviceauth.ServiceAuthApplication;
 import org.raistlic.serviceauth.models.dto.OAuth2ClientApplicationRegistrationRequest;
 import org.raistlic.serviceauth.models.dto.OAuth2ClientApplicationRegistrationResponse;
 import org.raistlic.serviceauth.service.OAuth2ClientApplicationRegistrationService;
@@ -19,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -28,8 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(
     controllers = OAuth2ClientApplicationRegistrationController.class,
-    excludeAutoConfiguration = {SecurityAutoConfiguration.class, SecurityFilterAutoConfiguration.class},
-    excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes = OAuth2PersistenceConfig.class)
+    excludeAutoConfiguration = {SecurityAutoConfiguration.class, SecurityFilterAutoConfiguration.class}
 )
 @ContextConfiguration(classes = ServiceAuthApplication.class)
 class OAuth2ClientApplicationRegistrationControllerTest {

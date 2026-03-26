@@ -1,4 +1,4 @@
-package com.example.serviceauth.helloworld;
+package org.raistlic.serviceauth.helloworld;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

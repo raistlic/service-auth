@@ -1,4 +1,4 @@
-package com.example.serviceauth.helloworld;
+package org.raistlic.serviceauth.helloworld;
 
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

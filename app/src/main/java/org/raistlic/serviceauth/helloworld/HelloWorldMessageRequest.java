@@ -1,4 +1,4 @@
-package com.example.serviceauth.helloworld;
+package org.raistlic.serviceauth.helloworld;
 
 public record HelloWorldMessageRequest(String message) {
 }

@@ -1,4 +1,4 @@
-package com.example.serviceauth.helloworld;
+package org.raistlic.serviceauth.helloworld;
 
 import java.net.URI;
 import java.util.List;

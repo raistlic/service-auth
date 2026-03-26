@@ -6,11 +6,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.serviceauth.ServiceAuthApplication;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.raistlic.serviceauth.ServiceAuthApplication;
 import org.raistlic.serviceauth.models.dto.OAuth2ClientApplicationRegistrationRequest;
 import org.raistlic.serviceauth.models.managed.OAuth2ClientApplication;
 import org.raistlic.serviceauth.repository.OAuth2ClientApplicationRepository;

@@ -1,12 +1,12 @@
-package com.example.serviceauth;
+package org.raistlic.serviceauth;
 
-import com.example.serviceauth.helloworld.HelloWorldMessage;
-import com.example.serviceauth.helloworld.HelloWorldMessageRepository;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import jakarta.persistence.EntityManager;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
+import org.raistlic.serviceauth.helloworld.HelloWorldMessage;
+import org.raistlic.serviceauth.helloworld.HelloWorldMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
