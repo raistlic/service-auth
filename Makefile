@@ -14,7 +14,7 @@ clean:
 	docker compose down --volumes --remove-orphans
 
 build:
-	./gradlew :app:build :e2e:assemble
+	./gradlew :app:build :admin-hub:build :e2e:assemble
 	docker build -t service-auth-app ./app
 
 e2e:
