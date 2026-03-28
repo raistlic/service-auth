@@ -26,9 +26,28 @@ Always work on a feature branch, never make changes on main branch directly.
 
 - Feature branch name format is `feature/<task summary>`.
 - Task summary is the summary of what the task is trying to achieve in 2~3 words in snake case.
-- Ask to create a feature branch if the current branch is `main`, always, as the first thing when starting to execute a task.
 - After the task is done, stage all changes, commit with appropriate message.
-- When instructed, push local changes to remote with the same feature branch name, create a PR with appropriate title & description, and provide a link in the console output for user to review. Do this step only when instructed.
+- When the first commit is made on a feature branch, automatically push the branch, create a GitHub PR with an appropriate title and description, and provide the PR link in the console output without stopping to ask permission.
+- For later changes on the same feature branch, automatically commit the changes, push the branch, and update the existing PR without stopping to ask permission.
+
+### Standing Permissions
+
+For this repository, agents do not need to stop and ask for additional user permission before:
+
+- making changes to any file in the repository
+- running any `git` command
+- running any `make` command
+- running any `./gradlew` command
+- running any `npm` command
+- running any `docker compose` or `docker-compose` command
+- running any `docker` command
+- creating GitHub pull requests or GitHub issues with `gh`
+- pushing branches and updating existing PRs after work on a feature branch
+
+These standing permissions do not override the rest of this file:
+
+- branch rules still apply, especially the requirement to work on a feature branch rather than directly on `main`
+- destructive or high-risk actions still require care and should remain narrowly scoped to the user’s request
 
 ### Security First
 
@@ -67,7 +86,6 @@ This is an **authentication service** — security is non-negotiable.
 
 - Prefer local, reversible actions. Confirm with the user before taking actions that are hard to undo (destructive migrations, force pushes, dropping data, sending external requests).
 - Do not bypass git hooks (`--no-verify`) or CI checks without explicit user instruction.
-- Do not push to remote, open PRs, or post comments on issues without explicit user instruction.
 - After finishing implementation or verification work, clean up the local runtime environment you started for the task.
 - If you started Docker Compose services for the task, stop them before concluding the work unless the user explicitly asks to keep them running.
 - If you started a local `bootRun` or equivalent long-running app process for the task, stop it before concluding the work unless the user explicitly asks to keep it running.
