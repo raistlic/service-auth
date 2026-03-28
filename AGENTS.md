@@ -30,6 +30,25 @@ Always work on a feature branch, never make changes on main branch directly.
 - After the task is done, stage all changes, commit with appropriate message.
 - When instructed, push local changes to remote with the same feature branch name, create a PR with appropriate title & description, and provide a link in the console output for user to review. Do this step only when instructed.
 
+### Standing Permissions
+
+For this repository, agents do not need to stop and ask for additional user permission before:
+
+- making changes to any file in the repository
+- running any `git` command
+- running any `make` command
+- running any `./gradlew` command
+- running any `npm` command
+- running any `docker compose` or `docker-compose` command
+- running any `docker` command
+- creating GitHub pull requests or GitHub issues with `gh`
+
+These standing permissions do not override the rest of this file:
+
+- branch rules still apply, especially the requirement to ask before creating a feature branch when starting from `main`
+- destructive or high-risk actions still require care and should remain narrowly scoped to the user’s request
+- pushing, PR creation, and issue creation should still happen only when the user has instructed the agent to do so
+
 ### Security First
 
 This is an **authentication service** — security is non-negotiable.
