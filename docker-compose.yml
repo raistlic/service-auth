@@ -29,6 +29,7 @@ services:
       DB_NAME: ${DB_NAME:-serviceauth}
       DB_USER: ${DB_USER:-serviceauth}
       DB_PASSWORD: ${DB_PASSWORD:-serviceauth}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-}
     ports:
       - "8080:8080"
 
