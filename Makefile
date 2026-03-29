@@ -19,7 +19,7 @@ build:
 
 e2e:
 	$(MAKE) build
-	docker compose up -d
+	SPRING_PROFILES_ACTIVE=dev docker compose up -d
 	@echo "Waiting for app to become healthy..."
 	@until curl -sf http://localhost:8080/actuator/health 2>/dev/null | grep -q '"status":"UP"'; do \
 		sleep 2; \
